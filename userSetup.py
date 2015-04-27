@@ -15,4 +15,4 @@ Maya_version = re.search('\d+$', Maya_product).group()
 Qt_path = os.path.normcase(os.path.join(QT_ROOT_PATH, Maya_version))
 
 #- add pyqt path to system path
-Qt_path in sys.path or sys.path.insert(0, Qt_path)
+Qt_path in sys.path or sys.path.append(Qt_path)
