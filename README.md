@@ -1,4 +1,4 @@
-PyQt4 for Maya 2012 - 2015
+PyQt4 for Maya 2012 - 2016
 =
 将 userSetup.mel 放到我的文档 maya/scripts 文件夹下（不需要放到版本内的文件夹里面）。
 Exp：C:\Users\zangchanglong\Documents\maya\scripts
