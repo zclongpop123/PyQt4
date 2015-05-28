@@ -1,1 +1,1 @@
-python("import imp;imp.load_source('temp', 'e:/foley/Maya-PyQt4/userSetup.py')");
+python("import imp;imp.load_source('temp', '//bjserver2/RiggingTools/Maya-PyQt4/userSetup.py')");
