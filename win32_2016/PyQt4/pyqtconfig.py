@@ -30,13 +30,13 @@ import sipconfig
 # These are installation specific values created when PyQt4 was configured.
 _pkg_config = {
     'pyqt_bin_dir':      'C:\\Program Files\\Autodesk\\Maya2016\\Python',
-    'pyqt_config_args':  'LIBDIR_QT=m:\\lib INCDIR_QT=m:\\include\\Qt MOC=m:\\bin\\moc.exe -w --no-designer-plugin',
+    'pyqt_config_args':  '-p m:\\mkspecs\\win32-msvc2012 LIBDIR_QT=m:\\lib INCDIR_QT=m:\\include\\Qt MOC=m:\\bin\\moc.exe -w --no-designer-plugin',
     'pyqt_mod_dir':      'C:\\Program Files\\Autodesk\\Maya2016\\Python\\Lib\\site-packages\\PyQt4',
     'pyqt_modules':      'QtCore QtGui QtHelp QtMultimedia QtNetwork QtDeclarative QtScript QtScriptTools QtXml QtOpenGL QtSql QtSvg QtTest QtWebKit QtXmlPatterns phonon QtDesigner QAxContainer',
     'pyqt_sip_dir':      'C:\\Program Files\\Autodesk\\Maya2016\\Python\\sip\\PyQt4',
-    'pyqt_sip_flags':    '-x VendorID -t WS_WIN -x PyQt_NoPrintRangeBug -t Qt_4_8_4 -x Py_v3 -g',
-    'pyqt_version':      0x040a04,
-    'pyqt_version_str':  '4.10.4',
+    'pyqt_sip_flags':    '-x VendorID -t WS_WIN -x PyQt_NoPrintRangeBug -t Qt_4_8_6 -x Py_v3 -g',
+    'pyqt_version':      0x040b03,
+    'pyqt_version_str':  '4.11.3',
     'qt_archdata_dir':   'G:\\main\\vendor\\Qt\\4.8.6-Maya\\qt-adsk-4.8.6',
     'qt_data_dir':       'G:\\main\\vendor\\Qt\\4.8.6-Maya\\qt-adsk-4.8.6',
     'qt_dir':            'G:\\main\\vendor\\Qt\\4.8.6-Maya\\qt-adsk-4.8.6',
