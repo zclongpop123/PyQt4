@@ -60,7 +60,7 @@ MODULE = 0
 CW_FILTER = 1
 
 
-class QObjectCreator(object):    
+class QObjectCreator(object):
     def __init__(self, creatorPolicy):
         self._cpolicy = creatorPolicy
 

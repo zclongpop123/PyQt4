@@ -75,17 +75,17 @@ class _CustomWidgetLoader(object):
         sys.path.append(".")
         self._widgets = {}
         self._modules = {}
-        
+
     def addCustomWidget(self, widgetClass, baseClass, module):
         assert widgetClass not in self._widgets
         self._widgets[widgetClass] = module
-    
+
     def search(self, cls):
         try:
             module = self._widgets[cls]
             if module not in self._modules:
                 self._modules[module] = __import__(module, {}, {}, (cls,))
-            
+
             return getattr(self._modules[module], cls)
         except KeyError:
             pass
@@ -95,10 +95,10 @@ class _CustomWidgetLoader(object):
 class LoaderCreatorPolicy(object):
     def createQtGuiWrapper(self):
         return _QtGuiWrapper
-    
+
     def createModuleWrapper(self, moduleName, classes):
         return _ModuleWrapper(moduleName, classes)
-    
+
     def createCustomWidgetLoader(self):
         return _CustomWidgetLoader()
 

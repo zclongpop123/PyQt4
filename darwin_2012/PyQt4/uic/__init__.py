@@ -142,7 +142,7 @@ def compileUi(uifile, pyfile, execute=False, indent=4, pyqt3_wrapper=False, from
     """compileUi(uifile, pyfile, execute=False, indent=4, pyqt3_wrapper=False, from_imports=False)
 
     Creates a Python module from a Qt Designer .ui file.
-    
+
     uifile is a file name or file-like object containing the .ui file.
     pyfile is the file-like object to which the Python code will be written to.
     execute is optionally set to generate extra Python code that allows the

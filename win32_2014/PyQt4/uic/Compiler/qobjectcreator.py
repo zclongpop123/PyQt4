@@ -72,10 +72,10 @@ class _ModuleWrapper(object):
         else:
             self._package = None
             self._module = name
-            
+
         self._classes = classes
         self._used = False
-    
+
     def search(self, cls):
         if cls in self._classes:
             self._used = True
@@ -95,9 +95,9 @@ class _CustomWidgetLoader(object):
     def __init__(self):
         self._widgets = {}
         self._usedWidgets = set()
-        
+
     def addCustomWidget(self, widgetClass, baseClass, module):
-        assert widgetClass not in self._widgets 
+        assert widgetClass not in self._widgets
         self._widgets[widgetClass] = (baseClass, module)
 
     def _resolveBaseclass(self, baseClass):
@@ -105,14 +105,14 @@ class _CustomWidgetLoader(object):
             for x in range(0, 10):
                 try: return strict_getattr(QtGui, baseClass)
                 except AttributeError: pass
-                
+
                 baseClass = self._widgets[baseClass][0]
             else:
                 raise ValueError("baseclass resolve took too long, check custom widgets")
 
         except KeyError:
             raise ValueError("unknown baseclass %s" % baseClass)
-        
+
     def search(self, cls):
         try:
             baseClass = self._resolveBaseclass(self._widgets[cls][0])
@@ -137,7 +137,7 @@ class _CustomWidgetLoader(object):
 class CompilerCreatorPolicy(object):
     def __init__(self):
         self._modules = []
-        
+
     def createQtGuiWrapper(self):
         return _QtGuiWrapper
 
