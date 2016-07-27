@@ -78,11 +78,11 @@ class _CustomWidgetLoader(object):
         self._widgets = {}
         self._modules = {}
         self._package = package
-        
+
     def addCustomWidget(self, widgetClass, baseClass, module):
         assert widgetClass not in self._widgets
         self._widgets[widgetClass] = module
-    
+
     def search(self, cls):
         module_name = self._widgets.get(cls)
         if module_name is None:
@@ -120,10 +120,10 @@ class LoaderCreatorPolicy(object):
 
     def createQtGuiWrapper(self):
         return _QtGuiWrapper
-    
+
     def createModuleWrapper(self, moduleName, classes):
         return _ModuleWrapper(moduleName, classes)
-    
+
     def createCustomWidgetLoader(self):
         return _CustomWidgetLoader(self._package)
 

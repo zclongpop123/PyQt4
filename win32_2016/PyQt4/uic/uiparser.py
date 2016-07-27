@@ -53,7 +53,7 @@ except ImportError:
             from elementtree.ElementTree import parse, SubElement
         except ImportError:
             from PyQt4.elementtree.ElementTree import parse, SubElement
-        
+
 
 from PyQt4.uic.exceptions import NoSuchWidgetError
 from PyQt4.uic.objcreator import QObjectCreator
@@ -165,15 +165,15 @@ class ButtonGroup(object):
         self.object = None
 
 
-class UIParser(object):    
+class UIParser(object):
     def __init__(self, QtCoreModule, QtGuiModule, creatorPolicy):
         self.factory = QObjectCreator(creatorPolicy)
         self.wprops = Properties(self.factory, QtCoreModule, QtGuiModule)
-        
+
         global QtCore, QtGui
         QtCore = QtCoreModule
         QtGui = QtGuiModule
-        
+
         self.reset()
 
     def uniqueName(self, name):
@@ -240,7 +240,7 @@ class UIParser(object):
         widget_class = elem.attrib['class'].replace('::', '.')
         if widget_class == 'Line':
             widget_class = 'QFrame'
-        
+
         # Ignore the parent if it is a container.
         parent = self.stack.topwidget
         if isinstance(parent, (QtGui.QDockWidget, QtGui.QMdiArea,
@@ -307,7 +307,7 @@ class UIParser(object):
         if self.sorting_enabled is not None:
             widget.setSortingEnabled(self.sorting_enabled)
             self.sorting_enabled = None
-        
+
         if self.stack.topIsLayout():
             lay = self.stack.peek()
             lp = elem.attrib['layout-position']
@@ -329,7 +329,7 @@ class UIParser(object):
             tooltip = self.wprops.getAttribute(elem, "toolTip")
             if tooltip is not None:
                 topwidget.setItemToolTip(topwidget.indexOf(widget), tooltip)
-                
+
         elif isinstance(topwidget, QtGui.QTabWidget):
             icon = self.wprops.getAttribute(elem, "icon")
             if icon is not None:
@@ -340,16 +340,16 @@ class UIParser(object):
             tooltip = self.wprops.getAttribute(elem, "toolTip")
             if tooltip is not None:
                 topwidget.setTabToolTip(topwidget.indexOf(widget), tooltip)
-            
+
         elif isinstance(topwidget, QtGui.QWizard):
             topwidget.addPage(widget)
-            
+
         elif isinstance(topwidget, QtGui.QStackedWidget):
             topwidget.addWidget(widget)
-            
+
         elif isinstance(topwidget, (QtGui.QDockWidget, QtGui.QScrollArea)):
             topwidget.setWidget(widget)
-            
+
         elif isinstance(topwidget, QtGui.QMainWindow):
             if type(widget) == QtGui.QWidget:
                 topwidget.setCentralWidget(widget)
@@ -790,7 +790,7 @@ class UIParser(object):
         for child in iter(elem):
             try:
                 handler = self.widgetTreeItemHandlers[child.tag]
-            except KeyError: 
+            except KeyError:
                 continue
 
             handler(self, child)
@@ -820,7 +820,7 @@ class UIParser(object):
         self.addActions()
         self.setBuddies()
         self.setDelayedProps()
-        
+
     def addActions(self):
         for widget, action_name in self.actions:
             if action_name == "separator":
@@ -840,7 +840,7 @@ class UIParser(object):
 
             setter = getattr(widget, setter)
             setter(args)
-            
+
     def setBuddies(self):
         for widget, buddy in self.wprops.buddies:
             DEBUG("%s is buddy of %s", buddy, widget.objectName())
@@ -933,7 +933,7 @@ class UIParser(object):
                     mpath.append(part)
 
             return '.'.join(mpath)
-    
+
         for custom_widget in iter(elem):
             classname = custom_widget.findtext("class")
             if classname.startswith("Q3"):
@@ -956,7 +956,7 @@ class UIParser(object):
                 if prop is not None:
                     if prop.findtext('bool') == 'false':
                         bg.exclusive = False
-    
+
     # finalize will be called after the whole tree has been parsed and can be
     # overridden.
     def finalize(self):

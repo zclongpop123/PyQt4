@@ -76,7 +76,7 @@ def strict_getattr(module, clsname):
         raise AttributeError(cls)
     else:
         return cls
-    
+
 
 class i18n_string(object):
     def __init__(self, string, disambig):
@@ -108,10 +108,10 @@ class ProxyClassMember(object):
         self.proxy = proxy
         self.function_name = function_name
         self.flags = flags
-        
+
     def __str__(self):
         return "%s.%s" % (self.proxy, self.function_name)
-    
+
     def __call__(self, *args):
         func_call = "%s.%s(%s)" % (self.proxy,
                                    self.function_name,
@@ -127,7 +127,7 @@ class ProxyClassMember(object):
             if needs_translation:
                 i18n_print(func_call)
             else:
-                write_code(func_call)                       
+                write_code(func_call)
 
 
 class ProxyClass(ProxyBase):
@@ -151,7 +151,7 @@ class ProxyClass(ProxyBase):
                 funcall = "%s = %s" % (objectname, funcall)
 
             write_code(funcall)
-    
+
     def __str__(self):
         return self._uic_name
 
@@ -175,7 +175,7 @@ class LiteralProxyClass(ProxyClass):
         self._uic_name = "%s(%s)" % \
                      (moduleMember(self.module, self.__class__.__name__),
                       ", ".join(map(as_string, args)))
-        
+
 
 class ProxyNamespace(ProxyBase):
     pass
@@ -260,7 +260,7 @@ class QtGui(ProxyNamespace):
     class QHBoxLayout(QBoxLayout): pass
     class QVBoxLayout(QBoxLayout): pass
     class QFormLayout(QLayout): pass
-    
+
     class QWidget(QtCore.QObject):
         def font(self):
             return Literal("%s.font()" % self)

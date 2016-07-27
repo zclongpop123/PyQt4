@@ -50,7 +50,7 @@ class ProxyType(type):
 
         if not hasattr(args[0], "module"):
             args[0].module = ""
-    
+
     def __getattribute__(cls, name):
         try:
             return type.__getattribute__(cls, name)
@@ -64,7 +64,7 @@ class ProxyType(type):
 
             return type(name, (LiteralProxyClass, ),
                         {"module": moduleMember(type.__getattribute__(cls, "module"),
-                                                type.__getattribute__(cls, "__name__"))})            
+                                                type.__getattribute__(cls, "__name__"))})
 
     def __str__(cls):
         return moduleMember(type.__getattribute__(cls, "module"),
